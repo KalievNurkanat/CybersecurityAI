@@ -21,7 +21,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         verbose_name="Фамилия"
     )
     password = models.CharField(
-        max_length=20,
+        max_length=300,
         verbose_name="Пароль"
     )
     email = models.EmailField(
