@@ -53,9 +53,15 @@ class RequestGmailDataViewSets(viewsets.ModelViewSet):
         text = gmail_data["text"]
         url = gmail_data["url"]
         sender = gmail_data["sender"]
+        subject = gmail_data["subject"]
 
         result = analyze_request(text, url, sender)
 
         RequestData.objects.create(text=text, url=url, sender=sender)
 
-        return Response({"result":result, "sender": sender}, status=201)
+        return Response({"result":result,
+                        "sender": sender,
+                        "url": url,
+                        "text": text,
+                        "subject": subject
+                        }, status=201)
