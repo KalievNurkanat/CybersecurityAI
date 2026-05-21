@@ -5,19 +5,23 @@ from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(
+        max_length=20,
         verbose_name="Имя"
     )
     first_name = models.CharField(
+        max_length=20,
         null=True,
         blank=True,
         verbose_name="Имя"
     )
     last_name = models.CharField(
+        max_length=20,
         null=True,
         blank=True,
         verbose_name="Фамилия"
     )
     password = models.CharField(
+        max_length=20,
         verbose_name="Пароль"
     )
     email = models.EmailField(
