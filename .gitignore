@@ -1,5 +1,12 @@
+migrations
+.venv
+.venv/
+venv/
+__pycache__/
+*.pyc
 db.sqlite3
 .env
+node_modules/
+dist/
+build/
 scopes.txt
-__pycache__
-migrations
