@@ -5,7 +5,6 @@ from rest_framework.generics import CreateAPIView
 from django.contrib.auth import get_user_model
 import os
 from rest_framework.response import Response
-from django.http import HttpResponseRedirect
 
 
 User = get_user_model()
@@ -63,8 +62,9 @@ class GoogleLoginOauth(CreateAPIView):
 
         refresh_token = RefreshToken.for_user(user)        
 
-        return HttpResponseRedirect(f"http://localhost:8000/google-callback?access={refresh_token.access_token}&refresh={refresh_token}")
-
-
+        return Response({"refresh_token": str(refresh_token),
+                         "access_token": str(refresh_token.access_token,),
+                         "google_access_token": google_access_token
+                         })
 
       
